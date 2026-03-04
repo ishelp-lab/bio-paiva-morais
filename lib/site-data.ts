@@ -138,7 +138,7 @@ export const siteData: SiteData = {
     url: "#",
   },
   footer: {
-    brand: "Paiva Morais Semijoias",
-    copyright: `© ${new Date().getFullYear()} Paiva Morais. Todos os direitos reservados.`,
+    brand: "© Powered by Is Help",
+    copyright: `Publicidade & Interfaces`,
   },
 }
