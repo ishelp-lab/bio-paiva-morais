@@ -34,6 +34,21 @@ export default function Page() {
           <SocialIcons socials={socials} />
         </div>
 
+        {/* WhatsApp CTA */}
+      <div className="mt-4">
+        <WhatsAppCTA url="https://wa.me/5500000000000" />
+      </div>
+
+        {/* Separator */}
+        <div className="mx-auto my-6 h-px w-16 bg-border" />
+
+        {/* Action Links */}
+        <SectionContainer>
+          {links.map((link) => (
+            <LinkCard key={link.title} link={link} />
+          ))}
+        </SectionContainer>
+
         {/* Separator */}
         <div className="mx-auto my-6 h-px w-16 bg-border" />
 
@@ -49,21 +64,9 @@ export default function Page() {
           </SectionContainer>
         )}
 
-        {/* Action Links */}
-        <SectionContainer>
-          {links.map((link) => (
-            <LinkCard key={link.title} link={link} />
-          ))}
-        </SectionContainer>
-
         {/* Testimonials */}
         <div className="mt-4">
           <Testimonials testimonials={testimonials} />
-        </div>
-
-        {/* WhatsApp CTA */}
-        <div className="mt-4">
-          <WhatsAppCTA url="https://wa.me/5500000000000" />
         </div>
 
         {/* Footer */}
