@@ -1,4 +1,5 @@
-import { Sparkles, Share2 } from "lucide-react"
+import { Sparkles } from "lucide-react"
+import { ShareButton } from "./share-button"
 
 export function Header() {
   return (
@@ -9,12 +10,8 @@ export function Header() {
       >
         <Sparkles className="w-4 h-4" />
       </button>
-      <button
-        className="w-10 h-10 rounded-full bg-card flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-        aria-label="Compartilhar"
-      >
-        <Share2 className="w-4 h-4" />
-      </button>
+
+      <ShareButton />
     </div>
   )
 }
