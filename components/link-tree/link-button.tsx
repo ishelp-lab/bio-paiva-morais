@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { MoreOptionsButton } from "@/components/link-tree/more-options-button"
+import { MoreOptionsButton } from "./more-options-button"
 
 interface LinkButtonProps {
   label: string
