@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { MoreVertical } from "lucide-react"
+import { MoreOptionsButton } from "@/components/link-tree/more-options-button"
 
 interface LinkButtonProps {
   label: string
@@ -31,16 +31,12 @@ export function LinkButton({ label, thumbnail, icon, href = "#" }: LinkButtonPro
           </div>
         ) : null}
       </div>
+
       <span className="flex-1 text-center text-sm font-semibold text-foreground pr-10">
         {label}
       </span>
-      <button
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-        aria-label={`Mais opções para ${label}`}
-        onClick={(e) => e.preventDefault()}
-      >
-        <MoreVertical className="w-4 h-4" />
-      </button>
+
+      <MoreOptionsButton label={label} />
     </a>
   )
 }
