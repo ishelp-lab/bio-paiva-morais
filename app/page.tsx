@@ -1,3 +1,4 @@
+import { BackgroundDistortion } from "@/components/link-tree/background-distortion"
 import { Header } from "@/components/link-tree/header"
 import { Profile } from "@/components/link-tree/profile"
 import { LinkButton } from "@/components/link-tree/link-button"
@@ -7,7 +8,8 @@ import { Camera } from "lucide-react"
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background relative">
+      <BackgroundDistortion src="/images/pm-logo.jpg" />
       <div className="mx-auto max-w-md min-h-screen flex flex-col items-center px-5 pb-4">
         <Header />
         <Profile />
