@@ -1,51 +1,76 @@
-import { BackgroundDistortion } from "@/components/link-tree/background-distortion"
-import { Header } from "@/components/link-tree/header"
-import { Profile } from "@/components/link-tree/profile"
-import { LinkButton } from "@/components/link-tree/link-button"
-import { Footer } from "@/components/link-tree/footer"
-import { TikTokIcon } from "@/components/link-tree/tiktok-icon"
-import { Camera } from "lucide-react"
+import { BackgroundLayer } from "@/components/background-layer"
+import { ProfileCard } from "@/components/profile-card"
+import { SocialIcons } from "@/components/social-icons"
+import { LinkCard } from "@/components/link-card"
+import { FeaturedContent } from "@/components/featured-content"
+import { Testimonials } from "@/components/testimonials"
+import { SectionContainer } from "@/components/section-container"
+import { WhatsAppCTA } from "@/components/whatsapp-cta"
+import { BioFooter } from "@/components/bio-footer"
+import { siteData } from "@/lib/site-data"
 
 export default function Page() {
-  return (
-    <main className="min-h-screen bg-background relative">
-      <BackgroundDistortion src="/images/pm-logo.jpg" />
-      <div className="mx-auto max-w-md min-h-screen flex flex-col items-center px-5 pb-4">
-        <Header />
-        <Profile />
+  const { profile, background, socials, links, testimonials, featured, footer } =
+    siteData
 
-        <div className="flex flex-col gap-3.5 w-full mt-7">
-          <LinkButton
-            label="Compre Aqui"
-            thumbnail="/images/thumb-compre.jpg"
-            href="#"
+  return (
+    <>
+      <BackgroundLayer image={background.image} overlay={background.overlay} />
+
+      <main className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 py-10">
+        {/* Profile */}
+        <SectionContainer>
+          <ProfileCard
+            name={profile.name}
+            handle={profile.handle}
+            description={profile.description}
+            image={profile.image}
+            verified={profile.verified}
           />
-          <LinkButton
-            label="Gerência"
-            thumbnail="/images/thumb-gerencia.jpg"
-            href="#"
-          />
-          <LinkButton
-            label="Loja"
-            thumbnail="/images/thumb-loja.jpg"
-            href="#"
-          />
-          <LinkButton
-            label="Seja uma consultora"
-            icon={<Camera className="w-5 h-5" />}
-            href="#"
-          />
-          <LinkButton
-            label="TikTok"
-            icon={<TikTokIcon className="w-5 h-5" />}
-            href="#"
-          />
+        </SectionContainer>
+
+        {/* Social Icons */}
+        <div className="mt-5">
+          <SocialIcons socials={socials} />
         </div>
 
-        <div className="flex-1" />
+        {/* Separator */}
+        <div className="mx-auto my-6 h-px w-16 bg-border" />
 
-        <Footer />
-      </div>
-    </main>
+        {/* Featured Collection */}
+        {featured && (
+          <SectionContainer className="mb-4">
+            <FeaturedContent
+              title={featured.title}
+              description={featured.description}
+              image={featured.image}
+              url={featured.url}
+            />
+          </SectionContainer>
+        )}
+
+        {/* Action Links */}
+        <SectionContainer>
+          {links.map((link) => (
+            <LinkCard key={link.title} link={link} />
+          ))}
+        </SectionContainer>
+
+        {/* Testimonials */}
+        <div className="mt-4">
+          <Testimonials testimonials={testimonials} />
+        </div>
+
+        {/* WhatsApp CTA */}
+        <div className="mt-4">
+          <WhatsAppCTA url="https://wa.me/5500000000000" />
+        </div>
+
+        {/* Footer */}
+        <div className="mt-auto">
+          <BioFooter brand={footer.brand} copyright={footer.copyright} />
+        </div>
+      </main>
+    </>
   )
 }

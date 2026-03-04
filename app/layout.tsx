@@ -1,13 +1,22 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+})
 
 export const metadata: Metadata = {
-  title: 'Paiva Morais Semijoias',
-  description: 'Aumentando sua autoestima e beleza!',
+  title: 'Paiva Morais Semijoias | Revenda',
+  description:
+    'Ganhe dinheiro revendendo semijoias de alta qualidade. Comece sem investir nada com a Paiva Morais.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -28,6 +37,14 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#1a1a2e',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body
+        className={`${plusJakarta.variable} ${playfair.variable} font-sans antialiased`}
+      >
         {children}
         <Analytics />
       </body>
